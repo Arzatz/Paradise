@@ -700,7 +700,7 @@
 *///////////////////////
 
 /mob/living/can_resist()
-	return !((next_move > world.time) || incapacitated(ignore_restraints = TRUE))
+	return !((next_move > world.time) || incapacitated(ignore_restraints = TRUE) || has_status_effect(STATUS_EFFECT_HELPLESS))
 
 /mob/living/verb/resist()
 	set name = "Resist"
@@ -742,6 +742,10 @@
 	var/resisting = 0
 	if(HAS_TRAIT(src, TRAIT_IMMOBILIZED))
 		return FALSE //You can't move, so you can't resist
+	if(ishuman(src))
+		var/mob/living/carbon/human/victim = src
+		if(victim.has_status_effect(STATUS_EFFECT_HELPLESS))
+			return FALSE
 	for(var/X in grabbed_by)
 		var/obj/item/grab/G = X
 		resisting++

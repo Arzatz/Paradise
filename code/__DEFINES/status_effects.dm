@@ -112,6 +112,9 @@
 
 #define STATUS_EFFECT_MAGIC_DISGUISE /datum/status_effect/magic_disguise
 
+
+#define STATUS_EFFECT_HELPLESS /datum/status_effect/helpless
+
 #define STATUS_EFFECT_PEPPERSPRAYED /datum/status_effect/pepper_spray
 
 //#define STATUS_EFFECT_NECROPOLIS_CURSE /datum/status_effect/necropolis_curse
